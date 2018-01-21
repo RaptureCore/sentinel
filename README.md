@@ -51,6 +51,7 @@ Test the config by runnings all tests from the sentinel folder you cloned into
 
     $ ./venv/bin/py.test ./test
 
+NOTE: This test will currently error out as there is no active testnet running.
 With all tests passing and crontab setup, Sentinel will stay in sync with raptured and the installation is complete
 
 ## Configuration
