@@ -47,12 +47,9 @@ In the crontab editor, add the lines below, replacing '/home/YOURUSERNAME/sentin
 
 ### 4. Test the Configuration
 
-Test the config by runnings all tests from the sentinel folder you cloned into
-
-    $ ./venv/bin/py.test ./test
-
-NOTE: This test will currently error out as there is no active testnet running.
-With all tests passing and crontab setup, Sentinel will stay in sync with raptured and the installation is complete
+REMOVING the test step as it's not currently necessary. When properly configured and with the masternode synced, running:
+$ ./venv/bin/python bin/sentinel.py
+will process for a few seconds and then return a blank output.
 
 ## Configuration
 
