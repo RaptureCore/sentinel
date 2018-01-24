@@ -1,16 +1,15 @@
 # Rapture Sentinel
 
-An all-powerful toolset for Rapture.
+Sentinel is an autonomous agent for persisting, processing and automating Rapture governance objects and tasks, and for expanded functions in the upcoming releases.
 
-[![Build Status](https://travis-ci.org/rapturepay/sentinel.svg?branch=master)](https://travis-ci.org/rapturepay/sentinel)
+Sentinel is implemented as a Python application that binds to a local raptured instance on each Rapture Masternode.
 
-Sentinel is an autonomous agent for persisting, processing and automating Rapture V12.1 governance objects and tasks, and for expanded functions in the upcoming Rapture V13 release (Evolution).
-
-Sentinel is implemented as a Python application that binds to a local version 12.1 raptured instance on each Rapture V12.1 Masternode.
-
-This guide covers installing Sentinel onto an existing 12.1 Masternode in Ubuntu 14.04 / 16.04.
+This guide covers installing Sentinel onto an existing Masternode in Ubuntu 14.04 / 16.04.
 
 ## Installation
+
+### NOTE: Please create a non-root user account for raptured and sentinel to run under. It is not advisable to run under root. If you do install as root, note that your homedir in Step 3 will be /root/sentinel rather than /home/USERNAME/sentinel
+
 
 ### 1. Install Prerequisites
 
