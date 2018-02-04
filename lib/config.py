@@ -3,6 +3,7 @@
 """
 import sys
 import os
+import argparse
 from rapture_config import RaptureConfig
 
 default_sentinel_config = os.path.normpath(
@@ -15,13 +16,39 @@ min_raptured_proto_version_with_sentinel_ping = 70207
 
 
 def get_rapture_conf():
-    home = os.environ.get('HOME')
 
-    rapture_conf = os.path.join(home, ".rapturecore/rapture.conf")
-    if sys.platform == 'darwin':
-        rapture_conf = os.path.join(home, "Library/Application Support/RaptureCore/rapture.conf")
+    parser = argparse.ArgumentParser()
 
+    parser.add_argument('-c', '--config',
+                        action='store',
+                        help='Direct path to rapture.conf',
+                        dest='conf')
+
+    args = parser.parse_args()
+
+    if args.conf == None:
+
+	    home = os.environ.get('HOME')
+
+		
+
+	    while sys.platform not in ['darwin','win32']:
+	       	rapture_conf = os.path.join(home, ".rapturecore/rapture.conf")
+	    
+	    if sys.platform == 'darwin':
+	        rapture_conf = os.path.join(home, "Library/Application Support/RaptureCore/rapture.conf")
+
+	    if sys.platform == 'win32':
+	        rapture_conf = os.getenv('APPDATA')+"/RaptureCore/rapture.conf"
+
+    else:
+			rapture_conf = args.conf
+			if not os.path.isfile(rapture_conf):
+				print "Valid rapture.conf not found"
+				sys.exit(1)
+	
     rapture_conf = sentinel_cfg.get('rapture_conf', rapture_conf)
+
 
     return rapture_conf
 

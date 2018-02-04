@@ -240,6 +240,10 @@ def process_args():
                         action='store_true',
                         help='Bypass scheduler and sync/vote immediately',
                         dest='bypass')
+    parser.add_argument('-c', '--config',
+                        action='store',
+                        help='Direct path to rapture.conf',
+                        dest='conf')
     args = parser.parse_args()
 
     return args
