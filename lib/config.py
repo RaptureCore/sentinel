@@ -30,16 +30,14 @@ def get_rapture_conf():
 
 	    home = os.environ.get('HOME')
 
-		
-
-	    while sys.platform not in ['darwin','win32']:
-	       	rapture_conf = os.path.join(home, ".rapturecore/rapture.conf")
-	    
-	    if sys.platform == 'darwin':
+            if sys.platform == 'darwin':
 	        rapture_conf = os.path.join(home, "Library/Application Support/RaptureCore/rapture.conf")
 
-	    if sys.platform == 'win32':
+	    elif sys.platform == 'win32':
 	        rapture_conf = os.getenv('APPDATA')+"/RaptureCore/rapture.conf"
+	        
+            else:
+	       	rapture_conf = os.path.join(home, ".rapturecore/rapture.conf")
 
     else:
 			rapture_conf = args.conf
